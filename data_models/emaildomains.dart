@@ -1,0 +1,15 @@
+List<String> emailProviders = [
+  "@gmail.com",
+  "@yahoo.com",
+  "@hotmail.com",
+  "@hotmail.co.uk",
+  "@msn.com",
+  "@yahoo.co.uk",
+  "@yahoo.co.in",
+  "@live.com",
+  "@outlook.com",
+  "@live.co.uk",
+  "@googlemail.com",
+  "@yahoo.in",
+  ".co.uk",
+];
