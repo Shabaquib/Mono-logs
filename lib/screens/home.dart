@@ -8,7 +8,6 @@ import 'dart:math' as math;
 import 'package:flutter_spinkit/flutter_spinkit.dart' as spinkit;
 import 'package:mono_log/screens/edit_note.dart';
 import 'package:flutter/services.dart';
-import 'package:mono_log/screens/upload_capture.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'notes_list.dart';
@@ -213,31 +212,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             }
           }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          GestureDetector(
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => const UploadPage())),
-            child: Container(
-              padding: const EdgeInsets.all(15.0),
-              decoration: BoxDecoration(
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Theme.of(context).primaryColor
-                    : Theme.of(context).primaryColorDark,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.camera,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Theme.of(context).primaryColorDark
-                    : Theme.of(context).primaryColor,
-              ),
-            ),
-          ),
-          const SizedBox(width: 50.0),
-          GestureDetector(
+      floatingActionButton: FloatingActionButton(
             onTap: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (_) => EditNote(
                       isNew: true,
@@ -249,24 +224,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       userId: widget.userID.uid,
                       canDelete: true,
                     ))),
-            child: Container(
-              padding: const EdgeInsets.all(15.0),
-              decoration: BoxDecoration(
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Theme.of(context).primaryColor
-                    : Theme.of(context).primaryColorDark,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.add_rounded,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Theme.of(context).primaryColorDark
-                    : Theme.of(context).primaryColor,
-              ),
-            ),
+            child: const Icon(Icons.add_rounded)
           ),
-        ],
-      ),
       bottomNavigationBar: Container(
         color: Colors.transparent,
         height: 20.0,
